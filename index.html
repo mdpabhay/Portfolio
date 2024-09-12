@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Singhal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            transition: color 0.3s, background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Full-Screen Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #home {
+            size: 100%;
+            text-align: left;
+            background-color: #1c1c1c;
+            color: white;
+            position: relative;
+        }
+
+        .intro {
+            position: relative;
+        }
+
+        .intro img {
+            text-align: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .screen {
+            position: absolute;
+            font-size:200%;
+            top: 50%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* About Section */
+        #about, #projects, #interests, #contact {
+            background-color: #282c34;
+            color: white;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .project {
+            background: #444;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        form input, form textarea {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #61dafb;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="intro">
+            <img src="2.jpg" alt="Old School Computer" >
+            <div class="screen">
+                <h1>ABHAY SINGHAL</h1>
+                <br>
+                <p>Data Scientist | Full Stack Developer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am passionate about data science and solving real-world problems with technology...</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+            <div class="project">Fake News Detection using ML <br>
+                Developed and Implemented Web-application to combat online misinformation by 
+                Utilizing ML algorithms .
+                </div>
+            <div class="project">Restaurant Management System <br> Developed a comprehensive system using Flask to streamline 
+                operations, enhance customer experience, and improve overall efficiency.</div>
+            <div class="project">Online Exam Sheet checking system</div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests">
+        <h2>My Interests</h2>
+        <p>Music, Piano, and more...</p>
+        <div class="piano-audio">
+            <audio controls>
+                <source src="piano-song.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <form action="">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ABHAY SINGHAL. All Rights Reserved.</p>
+    </footer>
+
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP + ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Home Section Animation
+        gsap.from(".screen", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        // Scroll-triggered animations for sections
+        gsap.from("#about h2, #projects h2, #interests h2, #contact h2", {
+            scrollTrigger: {
+                trigger: "#about, #projects, #interests, #contact",
+                start: "top 80%",
+                toggleActions: "restart none none none"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            stagger: 0.3
+        });
+
+        gsap.from(".project", {
+            scrollTrigger: {
+                trigger: ".projects-container",
+                start: "top 75%",
+                toggleActions: "play none none reverse"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2
+        });
+    </script>
+</body>
+</html>
